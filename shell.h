@@ -26,6 +26,7 @@ void env_builtin(void);
 void error_message(char *command);
 
 /* functions*/
+void handle_comments(char *input);
 size_t calculate_length(const char *str);
 char *check_path(char *cmd);
 int tokenize(char *input);
