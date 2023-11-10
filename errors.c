@@ -16,6 +16,6 @@ void print_error_message(char *cmd)
 	write(STDERR_FILENO, cmd, strlen(cmd));
 	s_err = "' not found\n";
 	write(STDERR_FILENO, s_err, strlen(s_err));
+	free(cmd);
 	exit(EXIT_FAILURE);
 }
-
