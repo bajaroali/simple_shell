@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * tokenize - A function that tokenizes the path
+ * tokenize - tokenizes the path
  * @input: The line containing the user input
  * Return: 0 success
  */
