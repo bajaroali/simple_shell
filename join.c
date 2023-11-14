@@ -4,7 +4,7 @@
  * concatenate_strings - concatenator
  * @dest: string
  * @src: string
- * Return: for success (0)
+ * Return: 0 on success
  */
 char *concatenate_strings(char *dest, char *src)
 {
