@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * change_directory - changes the directory
+ * cd_builtin - changes the directory
  * @dir: arg passed to the cd command
  */
 void cd_builtin(char *dir)

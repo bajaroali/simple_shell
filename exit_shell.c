@@ -10,10 +10,10 @@ void exit_builtin(void)
 }
 
 /**
- * handle_signal - a function to handle signals
+ * signal_handler - a function to handle signals
  * @sig: the number of the signal
  */
-void handle_signal(int sig)
+void signal_handler(int sig)
 {
 	char *prompt = "\n$ ";
 

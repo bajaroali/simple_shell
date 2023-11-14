@@ -31,7 +31,7 @@ size_t calculate_length(const char *str);
 char *check_path(char *cmd);
 int tokenize(char *input);
 int start_new_program(char *args[]);
-void handle_signal(int sig);
+void signal_handler(int sig);
 void print_error_message(char *cmd);
 void print_environment(void);
 

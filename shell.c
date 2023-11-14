@@ -1,48 +1,71 @@
 #include "shell.h"
 
 /**
+ * print_prompt - Print the shell prompt
+ */
+void print_prompt(void)
+{
+	char *prompt = "$ ";
+	int char_write;
+
+	char_write = write(STDOUT_FILENO, prompt, strlen(prompt));
+	if (char_write == -1)
+	{
+		perror("Write error");
+		exit(1);
+	}
+}
+
+/**
+ * read_input - Read user input from stdin
+ * @line: Pointer to the input line
+ * @len: Pointer to the length of the input line
+ * Return: Number of characters read
+ */
+ssize_t read_input(char **line, size_t *len)
+{
+	ssize_t char_read = getline(line, len, stdin);
+
+	if (char_read == -1)
+	{
+		if (feof(stdin))
+		{
+			free(*line);
+			exit_builtin();
+		}
+		else
+		{
+			perror("Error reading input\n");
+			free(line);
+			exit(-1);
+		}
+	}
+
+	return (char_read);
+}
+
+/**
  * main - The main function to read user input
  * Return: 0 on success
  */
 int main(void)
 {
-	int char_read;
-	int char_write = 0;
-	char *prompt = "$ ";
+	ssize_t char_read;
 	size_t len = 0;
 	char *line = NULL;
 	int is_interactive = isatty(STDIN_FILENO);
 
-	signal(SIGINT, handle_signal);
+	signal(SIGINT, signal_handler);
 	while (1)
 	{
 		if (is_interactive)
 		{
-			char_write = write(1, prompt, strlen(prompt));
-			if (char_write == -1)
-			{
-				perror("Write error");
-				free(line);
-				exit(1);
-			}
+			print_prompt();
 		}
 		fflush(stdout);
-		char_read = getline(&line, &len, stdin);
-		if (char_read == -1)
-		{
-			if (feof(stdin))
-			{
-				free(line);
-				exit_builtin();
-			}
-			else
-			{
-				perror("Error reading input\n");
-				free(line);
-				exit(-1);
-			}
-		}
-		else if (char_read == 1)
+		char_read = read_input(&line, &len);
+
+		if (char_read == 1)
 		{
 			continue;
 		}
@@ -54,3 +77,4 @@ int main(void)
 	free(line);
 	return (0);
 }
+
