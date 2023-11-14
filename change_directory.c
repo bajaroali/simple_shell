@@ -3,6 +3,7 @@
 /**
  * cd_builtin - changes the directory
  * @dir: arg passed to the cd command
+ * Return: void
  */
 void cd_builtin(char *dir)
 {
