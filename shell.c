@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
- * print_prompt - Print the shell prompt
+ * print_prompt - Print prompt in interactive mode
+ * Return: void
  */
 void print_prompt(void)
 {
@@ -20,7 +21,8 @@ void print_prompt(void)
  * read_input - Read user input from stdin
  * @line: Pointer to the input line
  * @len: Pointer to the length of the input line
- * Return: Number of characters read
+ * Return: Number of characters
+ *
  */
 ssize_t read_input(char **line, size_t *len)
 {
