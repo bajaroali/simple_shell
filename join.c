@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * concatenate_strings - concatenator
+ * concatenate_strings - concatenates strings
  * @dest: string
  * @src: string
- * Return: 0 on success
+ * Return: 0  success
  */
 char *concatenate_strings(char *dest, char *src)
 {
