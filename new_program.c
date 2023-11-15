@@ -3,7 +3,7 @@
 /**
  * start_new_program - a function that starts a new program, child program
  * @args: The command argument passed as input
- * Return: 0 success
+ * Return: 0 on success
  */
 int start_new_program(char *args[])
 {
