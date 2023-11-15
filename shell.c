@@ -18,9 +18,9 @@ void print_prompt(void)
 }
 
 /**
- * read_input - Read user input from stdin
- * @line: Pointer to the input line
- * @len: Pointer to the length of the input line
+ * read_input - Reads user input from stdin
+ * @line: Pointer  input line
+ * @len: Pointer to length of  input line
  * Return: Number of characters
  *
  */
@@ -47,7 +47,7 @@ ssize_t read_input(char **line, size_t *len)
 }
 
 /**
- * main - The main function to read user input
+ * main -function to read user input
  * Return: 0 on success
  */
 int main(void)
